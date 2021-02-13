@@ -7,12 +7,12 @@ Created on Sat Feb 13 18:14:07 2021
 import os, shutil
 from PIL import Image
 
-INPUT_FOLDER = os.path.join("C:/Users/momo/Desktop/Projet - Perso/TTC_Detection/CORD")
-OUTPUT_FOLDER = os.path.join("C:/Users/momo/Desktop/Projet - Perso/TTC_Detection/CORD_renamed/")
+INPUT_FOLDER = os.path.join("absolute path to images to rename")
+OUTPUT_FOLDER = os.path.join("absolute path to renamed images")
 
 def prepare_folders():
     """
-    :return: void
+    return: void
         Creates necessary folders
     """
 
@@ -24,9 +24,9 @@ def prepare_folders():
 
 def find_images(folder):
     """
-    :param folder: str
+    param: str
         Path to folder to search
-    :return: generator of str
+    return: generator of str
         List of images in folder
     """
 
@@ -45,13 +45,12 @@ def rename_images():
     for img in images:
         #output_path = OUTPUT_FOLDER + img.split(".")[0] + ".jpg"
         input_path = os.path.join(INPUT_FOLDER, img)
-        tmp_path = OUTPUT_FOLDER + str(i) +'-receipt.jpg'
+        output_path = OUTPUT_FOLDER + 'image_' + str(i) + '.jpg'
         
         with open(input_path, 'rb') as file_in:
-            with open(tmp_path, 'wb') as file_out:
+            with open(output_path, 'wb') as file_out:
                 shutil.copyfileobj(file_in, file_out)
         
-        #cv2.imwrite(tmp_path, img)
         i+=1
 
 prepare_folders()
