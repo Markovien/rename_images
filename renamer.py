@@ -7,8 +7,8 @@ Created on Sat Feb 13 18:14:07 2021
 import os, shutil
 from PIL import Image
 
-INPUT_FOLDER = os.path.join("absolute path to images to rename")
-OUTPUT_FOLDER = os.path.join("absolute path to renamed images")
+INPUT_FOLDER = "absolute path to images to rename"
+OUTPUT_FOLDER = "absolute path to renamed images"
 
 def prepare_folders():
     """
